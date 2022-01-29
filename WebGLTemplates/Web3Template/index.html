@@ -28,6 +28,15 @@
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">{{{ PRODUCT_NAME }}}</div>
       </div>
+      <div>
+        <select name="wallets" id="" onchange="selectWallet(this.value)">
+          <option value="phantom" selected>Phantom</option>
+          <option value="solflare">Solflare</option>
+          <option value="slope">Slope</option>
+          <option value="coin98">Coin98</option>
+          <option value="math">Math Wallet</option>
+        </select>
+      </div>
     </div>
     <script>
             var buildUrl = "Build";
@@ -101,5 +110,13 @@
             document.body.appendChild(script);
     </script>
     <script src="TemplateData/solana-web3.min.js"></script>
+    <script src="TemplateData/extension-wallets.js"></script>
+    <script>
+      function selectWallet(wallet) {
+        console.log(wallet);
+        setWalletProvider(wallet);
+        connectToWalletProvider(wallet);
+      }
+    </script>
   </body>
 </html>
